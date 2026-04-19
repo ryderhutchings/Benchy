@@ -2,14 +2,14 @@
 set -e
 
 REPO_DIR=~/ai-benchmarks
-RESULTS_FILE=~/benchmarks/ai-results.txt
+RESULTS_FILE=~/Benchy/ai-results.txt
 
 cd "$REPO_DIR"
 
 echo "Running AI / LLM inference benchmarks..."
-mkdir -p ~/benchmarks
+mkdir -p ~/Benchy
 
-declare -a models=("llama3.2:3b" "llama3.1:8b" "llama2:13b")
+declare -a models=("tinyllama:1.1b" "deepseek-r1:1.5b" "llama3.2:3b")
 
 for model in "${models[@]}"; do
     echo ""
