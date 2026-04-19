@@ -22,7 +22,7 @@ This installs all dependencies, clones repos, pulls Ollama models, and downloads
 |---|---|---|
 | `run-top500-benchmark.sh` | HPL Linpack (single node) | `~/benchmarks/top500-results.txt` |
 | `run-ai-benchmark.sh` | Ollama LLM inference (llama3.2:3b, llama3.1:8b, llama2:13b) | `~/benchmarks/ai-results.txt` |
-| `run-memory-benchmark.sh` | tinymembench | `~/benchmarks/memory-results.txt` |
+| `run-tinymembench.sh` | tinymembench | `~/benchmarks/memory-results.txt` |
 | `run-disk-benchmark.sh` | iozone via disk-benchmark.sh | `~/benchmarks/disk-results.txt` |
 | `run-sbc-bench.sh` | sbc-bench (uploads result to public URL) | `~/benchmarks/sbc-bench-results.txt` |
 
