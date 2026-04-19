@@ -12,7 +12,6 @@ sudo apt install -y \
     hwloc \
     glmark2-es2 \
     stress-ng \
-    iozone3 \
     iperf3 \
     git \
     wget \
