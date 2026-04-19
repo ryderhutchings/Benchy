@@ -35,9 +35,9 @@ ollama pull llama3.2:3b
 mkdir -p ~/Benchy
 
 cd ~
-git clone https://github.com/geerlingguy/top500-benchmark.git
-git clone https://github.com/geerlingguy/ai-benchmarks.git
-git clone https://github.com/rojaster/tinymembench.git
+[ ! -d ~/top500-benchmark ] && git clone https://github.com/geerlingguy/top500-benchmark.git
+[ ! -d ~/ai-benchmarks ] && git clone https://github.com/geerlingguy/ai-benchmarks.git
+[ ! -d ~/tinymembench ] && git clone https://github.com/rojaster/tinymembench.git
 cd ~/tinymembench && make && cd ~
 
 # c2clat
