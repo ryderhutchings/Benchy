@@ -28,9 +28,9 @@ curl -fsSL https://ollama.com/install.sh | sh
 sudo systemctl start ollama && sleep 5 # Add fix for Error: could not connect to ollama server, run 'ollama serve' to start it
 
 # Ollama models
+ollama pull tinyllama:1.1b
+ollama pull deepseek-r1:1.5b
 ollama pull llama3.2:3b
-ollama pull llama3.1:8b
-ollama pull llama2:13b
 
 # GitHub repos
 cd ~
