@@ -32,6 +32,8 @@ ollama pull tinyllama:1.1b
 ollama pull deepseek-r1:1.5b
 ollama pull llama3.2:3b
 
+mkdir -p ~/Benchy
+
 cd ~
 git clone https://github.com/geerlingguy/top500-benchmark.git
 git clone https://github.com/geerlingguy/ai-benchmarks.git
@@ -42,7 +44,6 @@ cd ~/tinymembench && make && cd ~
 git clone https://github.com/rigtorp/c2clat.git && cd ~/c2clat && make && cd ~ || \
     echo "[!] c2clat build failed check the gist for manual steps"
 
-mkdir -p ~/benchmarks
 wget -q -O ~/benchmarks/disk-benchmark.sh https://raw.githubusercontent.com/geerlingguy/pi-cluster/master/benchmarks/disk-benchmark.sh
 wget -q -O ~/benchmarks/sbc-bench.sh https://raw.githubusercontent.com/ThomasKaiser/sbc-bench/master/sbc-bench.sh
 chmod +x ~/benchmarks/disk-benchmark.sh ~/benchmarks/sbc-bench.sh
