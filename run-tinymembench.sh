@@ -2,12 +2,12 @@
 set -e
 
 REPO_DIR=~/tinymembench
-RESULTS_FILE=~/benchmarks/memory-results.txt
+RESULTS_FILE=~/Benchy/memory-results.txt
 
 cd "$REPO_DIR"
 
 echo "Running tinymembench memory benchmark..."
-mkdir -p ~/benchmarks
+mkdir -p ~/Benchy
 
 ./tinymembench 2>&1 | tee "$RESULTS_FILE"
 
