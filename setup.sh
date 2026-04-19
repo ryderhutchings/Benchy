@@ -19,7 +19,7 @@ sudo apt install -y \
     build-essential \
     fastfetch \
     screenfetch \
-    gnuplot \
+    gnuplot
 
 sudo apt install -y vkmark || echo "[!] vkmark not available via 'apt' compile from source: https://github.com/geerlingguy/sbc-reviews/issues/76"
 
