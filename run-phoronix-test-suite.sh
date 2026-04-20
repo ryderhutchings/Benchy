@@ -6,6 +6,9 @@ PTS_DIR="$BASE/phoronix-test-suite"
 PTS_BIN="$PTS_DIR/phoronix-test-suite"
 RESULTS_FILE="$BASE/pts-results.txt"
 
+COMPLETED_DIR="$BASE/DONE"
+mkdir -p "$COMPLETED_DIR"
+
 mkdir -p "$BASE"
 
 if [[ ! -x "$PTS_BIN" ]]; then
@@ -27,3 +30,5 @@ echo "1" | "$PTS_BIN" batch-run pts/build-linux-kernel
 
 echo ""
 echo "[✓] Results saved to $RESULTS_FILE"
+
+mv "$(realpath "$0")" "$COMPLETED_DIR/"
