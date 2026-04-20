@@ -7,11 +7,13 @@ COMPLETED_DIR="$BASE/DONE"
 
 mkdir -p "$BASE" "$COMPLETED_DIR"
 
-if ! command -v geekbench6 >/dev/null 2>&1; then
-    echo "[!] geekbench6 not found. Run setup.sh first."
+GB_BIN="$BASE/geekbench6/Geekbench-6.7.0-Linux/geekbench6"
+ 
+if [[ ! -x "$GB_BIN" ]]; then
+    echo "[!] geekbench6 not found at $GB_BIN"
+    echo "    Run setup.sh first."
     exit 1
 fi
-
 exec > >(tee -a "$RESULTS_FILE") 2>&1
 
 echo "[*] Running Geekbench 6 (run 1 of 2)..."
