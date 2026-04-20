@@ -31,12 +31,11 @@ This installs all dependencies, clones repos, pulls Ollama models, and downloads
 | `run-sysbench.sh` | sysbench CPU | `~/Benchy/sysbench-results.txt` |
 
 ## Manual Steps
-These still require a display or manual download:
-- **Geekbench 6** — run `geekbench6` after install
-- **GravityMark** — requires active display, run after install
-- **glmark2** — `DISPLAY=:0 glmark2-es2`
-- **vkmark** — `DISPLAY=:0 vkmark`
+These still require a display or manual intervention:
+
+- **GravityMark** — requires active display: `bash ~/Benchy/GravityMark.run`
 - **iperf3** — requires a server: `iperf3 -c $SERVER_IP`
+- **nuttcp** — requires a server: `nuttcp -t $SERVER_IP`
 - **lstopo** — `lstopo lstopo.png`
 - **stress-ng** — `stress-ng --matrix 0` (monitor power draw at wall)
 
