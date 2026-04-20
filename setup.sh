@@ -116,6 +116,9 @@ wget -O "$BASE/$PTS_TAR" "$PTS_URL"
 echo "[*] Extracting PTS..."
 tar -xzf "$BASE/$PTS_TAR" -C "$BASE"
 
+echo "[*] Removing archive..."
+rm -f "$BASE/$PTS_TAR"
+
 PTS_DIR="$BASE/phoronix-test-suite"
 cd "$PTS_DIR"
 
