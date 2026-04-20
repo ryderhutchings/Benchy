@@ -116,7 +116,7 @@ wget -O "$BASE/$PTS_TAR" "$PTS_URL"
 echo "[*] Extracting PTS..."
 tar -xzf "$BASE/$PTS_TAR" -C "$BASE"
 
-PTS_DIR="$BASE/phoronix-test-suite-${PTS_VERSION}"
+PTS_DIR="$BASE/phoronix-test-suite"
 cd "$PTS_DIR"
 
 chmod +x phoronix-test-suite
