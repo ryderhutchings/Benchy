@@ -109,7 +109,7 @@ fi
 PTS_VERSION="${PTS_VERSION:-10.8.4}"
 curl -LO https://www.phoronix-test-suite.com/releases/phoronix-test-suite-${PTS_VERSION}.tar.gz
 tar -xvf phoronix-test-suite-${PTS_VERSION}.tar.gz
-cd $BASE/phoronix-test-suite
+cd $BASE/phoronix-test-suite-${PTS_VERSION}
 
 phoronix-test-suite install pts/encode-mp3
 phoronix-test-suite install pts/x264
