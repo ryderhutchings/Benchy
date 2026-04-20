@@ -23,7 +23,8 @@ sudo apt install -y \
     build-essential \
     fastfetch \
     screenfetch \
-    gnuplot
+    gnuplot \
+    stress-ng
 
 sudo apt install -y vkmark || echo "[!] vkmark not available via apt"
 
