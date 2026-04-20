@@ -4,9 +4,6 @@ Prototype script setup for automating [Jeff Geerling's SBC benchmark workflow](h
 ![License](https://img.shields.io/github/license/ryderhutchings/Benchy)
 ![Repo size](https://img.shields.io/github/repo-size/ryderhutchings/Benchy)
 ![Last commit](https://img.shields.io/github/last-commit/ryderhutchings/Benchy)
-![Stars](https://img.shields.io/github/stars/ryderhutchings/Benchy?style=flat)
-![Contributors](https://img.shields.io/github/contributors/ryderhutchings/Benchy)
-
 ![Arch](https://img.shields.io/badge/arch-x86__64%20%7C%20aarch64-lightgrey)
 ![Debian](https://img.shields.io/badge/tested%20on-Debian%2013-red)
 ![Shell](https://img.shields.io/badge/shell-bash-green)
