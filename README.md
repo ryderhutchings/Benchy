@@ -16,6 +16,9 @@ bash setup.sh
 
 This installs all dependencies, clones repos, pulls Ollama models, and downloads benchmark scripts. Geekbench 6 and GravityMark are installed automatically based on detected architecture (ARM or x86).
 
+> [!NOTE]
+> setup.sh will take a while to install benchmarks.
+
 ---
 
 ## Benchmark Scripts
