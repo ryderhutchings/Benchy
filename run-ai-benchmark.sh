@@ -1,21 +1,33 @@
 #!/bin/bash
-set -e
+set -euo pipefail
 
-REPO_DIR=~/ai-benchmarks
-RESULTS_FILE=~/Benchy/ai-results.txt
+REPO_DIR="$HOME/Benchy/ai-benchmarks"
+RESULTS_FILE="$HOME/Benchy/ai-results.txt"
+
+mkdir -p "$HOME/Benchy"
+
+if [ ! -d "$REPO_DIR" ]; then
+    echo "[!] ai-benchmarks not found at $REPO_DIR"
+    exit 1
+fi
 
 cd "$REPO_DIR"
 
-echo "Running AI / LLM inference benchmarks..."
-mkdir -p ~/Benchy
+echo "[*] Running AI / LLM inference benchmarks..."
 
-declare -a models=("tinyllama:1.1b" "deepseek-r1:1.5b" "llama3.2:3b")
+models=("tinyllama:1.1b" "deepseek-r1:1.5b" "llama3.2:3b")
 
 for model in "${models[@]}"; do
     echo ""
-    echo "Benchmarking $model..."
-    ./obench.sh -m "$model" -c 3 --markdown 2>&1 | tee -a "$RESULTS_FILE"
+    echo "[*] Benchmarking $model..."
+
+    if [ -x "./obench.sh" ]; then
+        ./obench.sh -m "$model" -c 3 --markdown 2>&1 | tee -a "$RESULTS_FILE"
+    else
+        echo "[!] obench.sh not found or not executable"
+        exit 1
+    fi
 done
 
 echo ""
-echo "Results saved to $RESULTS_FILE"
+echo "[✓] Results saved to $RESULTS_FILE"
