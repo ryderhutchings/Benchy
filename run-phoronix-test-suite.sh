@@ -2,6 +2,9 @@
 set -euo pipefail
 
 BASE="$HOME/Benchy"
+PTS_DIR="$BASE/phoronix-test-suite"
+PTS_BIN="$PTS_DIR/phoronix-test-suite"
+
 RESULTS_FILE="$BASE/pts-results.txt"
 
 mkdir -p "$BASE"
@@ -11,11 +14,18 @@ exec > >(tee -a "$LOG") 2>&1
 
 echo "[*] Running PTS benchmarks..."
 
-phoronix-test-suite batch-run pts/encode-mp3
-phoronix-test-suite batch-run pts/phpbench
+cd "$PTS_DIR"
 
-echo "1" | phoronix-test-suite batch-run pts/x264
-echo "1" | phoronix-test-suite batch-run pts/build-linux-kernel
+# Ensure PTS runs from correct directory
+export PTS_CORE_PATH="$PTS_DIR"
+
+# Benchmarks
+./phoronix-test-suite batch-run pts/encode-mp3
+./phoronix-test-suite batch-run pts/phpbench
+
+# x264 and kernel build often prompt, so we pre-answer
+echo "1" | ./phoronix-test-suite batch-run pts/x264
+echo "1" | ./phoronix-test-suite batch-run pts/build-linux-kernel
 
 echo ""
 echo "[✓] Results saved to $RESULTS_FILE"
