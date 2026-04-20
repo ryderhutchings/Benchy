@@ -2,32 +2,20 @@
 set -euo pipefail
 
 BASE="$HOME/Benchy"
-RESULTS_FILE="$BASE/sbc-general-benchmark-results.txt"
+RESULTS_FILE="$BASE/pts-results.txt"
 
 mkdir -p "$BASE"
 
-if [ ! -f "$BASE/sbc-general-benchmark/sbc-general-benchmark.sh" ]; then
-    echo "[!] sbc-general-benchmark.sh not found in $BASE"
-    exit 1
-fi
+LOG="$RESULTS_FILE"
+exec > >(tee -a "$LOG") 2>&1
 
-echo "[*] Running sbc-general-benchmark (PTS wrapper)..."
+echo "[*] Running PTS benchmarks..."
 
-sudo bash "$BASE/sbc-general-benchmark/sbc-general-benchmark.sh" -r 2>&1 | tee "$RESULTS_FILE"
+phoronix-test-suite batch-run pts/encode-mp3
+phoronix-test-suite batch-run pts/phpbench
+
+echo "1" | phoronix-test-suite batch-run pts/x264
+echo "1" | phoronix-test-suite batch-run pts/build-linux-kernel
 
 echo ""
 echo "[✓] Results saved to $RESULTS_FILE"
-
-# If you see:
-# [*] Running sbc-general-benchmark (PTS wrapper)...
-# Reading package lists...
-# Building dependency tree...
-# Reading state information...
-# E: Unable to locate package php8.2-cli
-# E: Couldn't find any package by glob 'php8.2-cli'
-# E: Couldn't find any package by regex 'php8.2-cli'
-# E: Unable to locate package php8.2-xml
-# E: Couldn't find any package by glob 'php8.2-xml'
-# E: Couldn't find any package by regex 'php8.2-xml'
-#
-# Do this: bash PHP_VERSION="8.4" run-phoronix-test-suite.sh
