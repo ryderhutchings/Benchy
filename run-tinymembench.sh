@@ -1,15 +1,17 @@
 #!/bin/bash
 set -e
 
-REPO_DIR=~/tinymembench
-RESULTS_FILE=~/Benchy/memory-results.txt
+BASE="$HOME/Benchy"
+REPO_DIR="$BASE/tinymembench"
+RESULTS_FILE="$BASE/memory-results.txt"
+
+mkdir -p "$BASE"
 
 cd "$REPO_DIR"
 
-echo "Running tinymembench memory benchmark..."
-mkdir -p ~/Benchy
+echo "[*] Running tinymembench memory benchmark..."
 
 ./tinymembench 2>&1 | tee "$RESULTS_FILE"
 
 echo ""
-echo "Results saved to $RESULTS_FILE"
+echo "[*] Results saved to $RESULTS_FILE"
