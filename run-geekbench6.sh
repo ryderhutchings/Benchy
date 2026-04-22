@@ -8,8 +8,6 @@ GB_DIR=$(find "$BASE/geekbench6" -maxdepth 1 -type d -name "Geekbench-6.*" | hea
 GB_BIN="$GB_DIR/geekbench6"
 SCRIPT_PATH="$(realpath "$0")"
 
-
-
 mkdir -p "$BASE" "$COMPLETED_DIR"
 
 if [[ ! -x "$GB_BIN" ]]; then
